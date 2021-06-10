@@ -5,9 +5,7 @@ node {
         git url: 'https://github.com/riyag283/java-app', branch: "${params.branch}"
     }
     stage('Build') {
-        steps {
-            bat "javac App.java"
-            bat "java App abcd"
-        }
+        bat label: 'compile', script: '''javac App.java'''
+        bat label: 'compile', script: '''java App'''
     }
 }
